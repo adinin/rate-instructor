@@ -4,6 +4,7 @@ app:
     - "80:8000"
   links:
     - db
+  working_dir: /usr/src/app
     
 db:
   image: mongo

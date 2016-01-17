@@ -14,4 +14,4 @@ ADD . /usr/src/app
 EXPOSE 8000
 
 ## run the API
-CMD ["node", "/usr/src/app/server.js"]
+CMD ["/usr/local/bin/node", "/usr/src/app/server.js"]
