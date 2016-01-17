@@ -7,7 +7,7 @@ Since I have been learning to fly a small Cesna 172, this is the first step in c
 ## Live Demo - check it out to get inspired before you begin 
     http://ec2-52-90-103-202.compute-1.amazonaws.com/
     
-## Before we begin (I am borrowing this for other awesome folks :)
+## Before we begin
 
 I'll be referring to commands executed in your own terminal with:
 
@@ -20,7 +20,7 @@ And commands inside a container with:
     $ root: command
 ```
 
-Output you get after running a command 
+Output you get after running a command (in container/or your terminal)
 ```javascript,linenums=true
     %: output 
 ```
@@ -31,7 +31,7 @@ Output you get after running a command inside Mongo Shell
 ```
 
 ## Local Host Test 
-    $osxterm: git clone 
+    $osxterm: git clone https://github.com/georgebatalinski/rate-instructor.git
     $osxterm: npm install
     $osxterm: npm start
     Your Web browser: http://localhost:8000
@@ -113,12 +113,13 @@ dbdata:
 
 
 ## Building on AWS 
-    All the work - now we get the payoff
+All the work - now we get the payoff
+
 ```javascript,linenums=true
     $osxterm: docker-compose up -d 
 ```
-Check Public DNS (from AWS) 
-    ec2-52-90-103-202.compute-1.amazonaws.com
+Check Public DNS (from AWS) - in my case it is: 
+ec2-52-90-103-202.compute-1.amazonaws.com
     
 ## Add data to our DB
 ### Get into our OS on Docker
@@ -146,7 +147,13 @@ Check Public DNS (from AWS)
     $ root: mongo 172.17.0.2:27017
 ```
 
-### Now you are inside mongod
+### Now you are inside mongod - add your data 
+We need the following data:
+Db name: school 
+Collection Name: instructors
+Data fileds: { name : 'Frank ' + i, hoursflown: i * 100, numberOfLikes: 0 } 
+
+
 ```javascript,linenums=true
 > show dbs
     local  0.000GB
@@ -163,7 +170,8 @@ Check Public DNS (from AWS)
 ## Back up your data
 ```javascript,linenums=true
     $osxterm: docker exec -it 3fac66047f37 /bin/bash
-    $osxterm: tar -cvpzf /dbbackup.tar.gz /data/db 
+    $ root: tar -cvpzf /dbbackup.tar.gz /data/db 
+    $ root: exit 
     $osxterm: docker cp 3fac66047f37:/dbbackup.tar.gz /Users/jerzybatalinski/Desktop/ 
 ```
 
