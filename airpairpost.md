@@ -126,8 +126,8 @@ If you still are in awe (and cannot believe it), that you created an instance on
 
 ## Adding Docker to the mix 
 
-### Dockerfile for your porject 
-All a Dockerfile is  a instruction file that you will write, to use Docker. The purpose of this is to automate the copying and installation of the system requirements, for the environment you want. 
+### Dockerfile for your project 
+A Dockerfile consists of instructions that will create an image for you to use with Docker. The purpose of this is to automate the copying and installation of the system requirements, for the environment you want. 
  
 To start off, lets start with just an application - using branch[clean-slate] from the following repo
 ```
@@ -138,10 +138,10 @@ To start off, lets start with just an application - using branch[clean-slate] fr
 Creating a docker file is easy, using your favourite code editor - create a new file named 'Dockerfile', or via Terminal 
 
 ```
-   $osxterm: vi Dockerfile 
+   $osxterm: vim Dockerfile 
 ```
 
-Here is a sample environment that we will be working with for our App - feel free to copy this into your local file (for the most part, all we are doing here 
+Here is a sample environment that we will be working with for our app. Feel free to copy this into your local file (for the most part, all we are doing here 
 is creating an image - and moving files from our local system to the remote)
 ```
 FROM node 
@@ -205,7 +205,7 @@ dbdata:
 ```
 
 The biggies: 
-build context that is sent to the Docker daemon - Make sure you are not in your root directory when running 'docker compose up'- because docker build sends the whole directory (if you are in root - your whole filesystem) to the DEMON - which executes your build 
+build context that is sent to the Docker daemon - Make sure you are not in your root directory when running 'docker-compose up'- because docker build sends the whole directory (if you are in root - your whole filesystem) to the D``EMON - which executes your build 
 [Github issue](https://github.com/docker/docker/issues/2342 "AirPair Posts")
 
 /usr/lib/mongodb - Docker volumes by default mount in read-write mode, but you can also set it to be mounted read-only. - e.g. /usr/lib/mongodb:ro
