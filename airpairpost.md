@@ -205,7 +205,7 @@ dbdata:
 ```
 
 The biggies: 
-build context that is sent to the Docker daemon - Make sure you are not in your root directory when running 'docker-compose up'- because docker build sends the whole directory (if you are in root - your whole filesystem) to the D``EMON - which executes your build 
+build context that is sent to the Docker daemon - Make sure you are not in your root directory when running 'docker-compose up'- because docker build sends the whole directory (if you are in root - your whole filesystem) to the DEMON - which executes your build 
 [Github issue](https://github.com/docker/docker/issues/2342 "AirPair Posts")
 
 /usr/lib/mongodb - Docker volumes by default mount in read-write mode, but you can also set it to be mounted read-only. - e.g. /usr/lib/mongodb:ro
